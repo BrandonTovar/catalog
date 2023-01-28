@@ -1,5 +1,12 @@
 @import url("./navigation.css");
 @import url("./normalized.css");
 @import url("./attributes.css");
+@import url("./transitions.css");
+@import url("./objects.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
