@@ -1,6 +1,22 @@
 .separator {
     width: calc(var(--width) - 40px);
+    border-radius: var(--corner);
     height: 1px;
-    background-color: var(--fontColor);
-    position: absolute;
+    backdrop-filter: invert(0.06);
+}
+
+.btn {
+    width: var(--btn);
+    height: var(--btn);
+    border-radius: 100%;
+    background-color: var(--btn_color);
+    border-style: none;
+    outline-style: none;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: right;
+    color: var(--fontColor);
+}
+.btn[value="arrow_forward_ios"] {
+    text-align: center;
 }

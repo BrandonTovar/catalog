@@ -1,11 +1,13 @@
 :root {
     font-family: 'Poppins';
+
     /* Colores */
     --background: #ececec;
     --surface: #ececec;
     --accent: #d31d1d;
     --primary: #9c1414;
     --secondary: #d61818;
+    --btn_color: white;
     --fontColor: #404040;
     --hover: black;
      
@@ -15,11 +17,13 @@
     --hInfo: 80px;
     --wInfo: var(--wArticle);
     --hArticle: calc(var(--wArticle) + var(--hInfo));
+    --gap: 40px;
+    --btn: 45px;
 
     /* Efectos */
-    --shadow: 0px 0px 2px 3px #00000020;
+    --shadow: 0px 0px 10px 0px #00000020;
     --border: solid 1px;
-    --corner:11px;
+    --corner: 11px;
 
     /* Transiciones */
     --transition: linear 0.1s;

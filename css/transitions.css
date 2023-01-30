@@ -33,3 +33,12 @@ nav .options li:hover a{
 }
 
 nav .options li[class="material-symbols-rounded"]:hover a { color: white; }
+
+.btn:hover {
+    transform: scale(1.1);
+    filter: contrast(0.92);
+    cursor: pointer;
+}
+.btn:active {
+    transform: scale(0.9);
+}
