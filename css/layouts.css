@@ -1,0 +1,240 @@
+table {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px;
+    border: none;
+}
+
+
+/* Banner */
+
+.banner {
+    width: var(--width);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.banner .advertisings {
+    width: var(--width);
+    --height: calc(var(--width) / 2.83);
+    height: var(--height);
+    background-color: royalblue;
+    border-radius: var(--corner);
+    box-shadow: var(--shadow);
+    overflow: clip;
+}
+
+.advertisings img {
+    height: var(--height);
+    width: 100%;
+    object-fit: contain;
+}
+
+.banner .btn {
+    position: absolute;
+    opacity: 0%;
+    transition: var(--transition);
+}
+
+.banner .btn[value="arrow_forward_ios"] {
+    right: var(--gap);
+}
+
+.banner .btn[value="arrow_back_ios"] {
+    left: var(--gap);
+}
+
+/* Formas de pago */
+
+.payment {
+    background-color: var(--surface);
+    border-radius: var(--corner);
+    box-shadow: var(--shadow);
+    flex-direction: row;
+}
+
+.payment span, .payment p, .payment a, .payment caption{
+    color: var(--fontColor);
+}
+
+.payment p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment span {
+    font-size: var(--payments);
+}
+
+
+
+/* Marcas */
+
+.vendors {
+    --icons: 8;
+    width: var(--width);
+}
+
+.vendors caption {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: var(--width);
+    margin-bottom: 1rem;
+}
+
+.vendors tr {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.vendors tr td:last-child { margin-right: 0px; }
+
+.vendors td {
+    width: calc((var(--width) / var(--icons)) - var(--gap));
+    height: calc((var(--width) / var(--icons)) - var(--gap));
+    background-color: var(--surface);
+    border-radius: var(--corner);
+    box-shadow: var(--shadow);
+    margin-inline-end: calc(var(--gap) / (var(--icons) - 1) * var(--icons));
+    padding: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vendors a {
+    text-decoration: none;
+    color: var(--fontColor);
+    opacity: 0%;
+    height: 0px;
+
+    transition: var(--transition);
+}
+
+.vendors td img {
+    object-fit: cover;
+    width: calc((var(--width) / var(--icons)) - var(--gap) - 2rem);
+    height: auto;
+    filter: contrast(0);
+    transition: var(--transition);
+}
+
+
+/* Articles */
+.articles {
+    --articles: 6;
+}
+
+.articles table td { padding: 0px; }
+
+.articles table tr {
+    display: grid;
+    width: var(--width);
+    grid-template-columns: calc( 100% - ( var(--btn) * 4 ) ) repeat( 2 , calc( var(--btn) * 2 ) );
+    margin-bottom: 1rem;
+}
+
+.articles table tr td:nth-child(3), .articles table tr td:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.articles .products {
+    display: grid;
+    grid-template-columns: repeat(var(--articles), calc(var(--width) / var(--articles)));
+
+    height: auto;
+    justify-items: center;
+    align-items: center;
+    overflow: clip;
+}
+
+/* Categorias */
+
+.categories {
+    --icons: 8;
+    width: var(--width);
+    position: relative;
+    overflow: clip;
+    border: none;
+    border-radius: var(--corner);
+}
+
+.categories caption { display: flex; }
+
+.categories tbody {
+    background-color: var(--surface);
+    border-radius: var(--corner);
+    overflow: clip;
+}
+
+.categories tr {
+    display: grid;
+    grid-template-columns: repeat(var(--icons), calc(var(--width) / var(--icons) ));
+    grid-template-rows: calc(var(--width) / var(--icons) );
+    padding: 0px;
+}
+
+.categories .category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: var(--border);
+    border-right: var(--border);
+}
+
+.categories tbody tr:nth-child(2) { border-bottom: none; }
+.categories tbody tr td:last-child { border-right: none; }
+
+
+.categories .category img {
+    height: var(--height);
+    width: 60%;
+    object-fit: contain;
+}
+
+.category a {
+    text-decoration: none;
+    color: var(--fontColor);
+}
+
+/* Interesting */
+
+.interesting tbody {
+    background-color: var(--surface);
+    width: var(--width);
+    border-radius: var(--corner);
+}
+
+.interesting  { display: inline-table;}
+.interesting tr:nth-child(1) td:nth-child(1) {
+    background-color: rebeccapurple;
+    width: 220px;
+    height: 220px;
+}
+.interesting tr td {
+    background-color: antiquewhite;
+    width: 220px;
+    height: 110px;
+}
+
+.interesting tr {
+    background-color: aliceblue;
+}
+.interesting td {
+    border: solid black 1px
+}

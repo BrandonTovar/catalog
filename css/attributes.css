@@ -3,7 +3,7 @@
 
     /* Colores */
     --background: #ececec;
-    --surface: #ececec;
+    --surface: white;
     --accent: #d31d1d;
     --primary: #9c1414;
     --secondary: #d61818;
@@ -14,15 +14,16 @@
     /* Dimensions */
     --width: 1200px;
     --wArticle: 180px;
-    --hInfo: 80px;
+    --hInfo: 60px;
     --wInfo: var(--wArticle);
     --hArticle: calc(var(--wArticle) + var(--hInfo));
     --gap: 40px;
     --btn: 45px;
+    --payments: 60px;
 
     /* Efectos */
-    --shadow: 0px 0px 10px 0px #00000020;
-    --border: solid 1px;
+    --shadow: 0px 0px 10px -3px #00000040;
+    --border: solid 1px #00000020;
     --corner: 11px;
 
     /* Transiciones */

@@ -60,6 +60,7 @@ nav .options li[class="material-symbols-rounded"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 100%;
 }
 
 nav .options li { 
@@ -73,6 +74,7 @@ nav .options li {
 nav .options a {
     text-decoration: none;
     color: var(--fontColor);
+    transition: var(--transition);
 }
 
 nav .searcher {
@@ -118,6 +120,7 @@ nav .searcher input[type="button"] {
 .shortcuts a {
     text-decoration: none;
     color: var(--fontColor);
+    transition: var(--transition);
 }
 
 
@@ -127,20 +130,39 @@ footer {
     height: auto;   
 }
 
-footer .informative {
-    width: calc(var(--width) - (var(--gap) * 2));
+footer .outstanding {
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: left;
+    width: var(--width);
+}
+
+footer .outstanding a {
+    text-decoration: none;
+    font-size: small;
+    color: var(--fontColor);
+    margin-inline: 1rem;
+}
+
+footer .informative {
+    width: var(--width);
+    display: flex;
+    align-items: flex-start;
     flex-direction: row;
-    column-gap: calc(var(--gap) * 1.5);
-    margin-block: calc(var(--gap) / 2);
+    column-gap: 2rem;
+    padding: 1rem;
     position: relative;
+}
+
+footer .informative div {
+    margin-inline: 1rem;
 }
 
 footer .informative h5 {
     margin-inline: 0px;
     margin-bottom: 0.5rem;
+    margin-top: 0px;
 }
 
 footer .informative ul {
@@ -157,12 +179,18 @@ footer .informative ul * {
     font-size: small;
 }
 
-.contactme {
-    position: absolute;
-    left: var(--gap);
+footer .informative table td {
+    padding-inline-end: 10px;
+    padding-block-end: 5px;
+    vertical-align: top;
+}
+footer .informative table td a {
+    margin: 0px;
+    text-decoration: none;
+    color: var(--fontColor);
+    font-size: small;
 }
 
-.contactme h3 {
-    margin-block: 10px;
-    margin-top: 0px;
+footer .informative table h3 {
+    margin: 0px;
 }

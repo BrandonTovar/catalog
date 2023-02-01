@@ -34,11 +34,71 @@ nav .options li:hover a{
 
 nav .options li[class="material-symbols-rounded"]:hover a { color: white; }
 
+.shortcuts a:hover { 
+    color: var(--accent); 
+    text-decoration: underline;
+}
+
+/* Botones */
+
 .btn:hover {
     transform: scale(1.1);
-    filter: contrast(0.92);
     cursor: pointer;
 }
 .btn:active {
     transform: scale(0.9);
+    filter: contrast(0.92);
+}
+
+
+
+/* Banner */
+
+.banner:hover { cursor: pointer; }
+.banner:hover .btn { opacity: 100%; }
+
+
+/* Vendors */
+
+.vendors td:hover { cursor: pointer; }
+.vendors td:hover a { 
+    height: auto;
+    opacity: 100%;
+}
+
+.vendors td:hover img { 
+    filter: none;
+}
+
+/* Producto */
+
+.product:hover { cursor: pointer; }
+
+.product:hover .prod_description{
+    height: calc(var(--hInfo) + (var(--hInfo) / 2));
+    border-radius: var(--corner);
+    grid-template-rows: repeat(3, min-content);
+}
+
+.product:hover .prod_description a {
+    height: auto;
+    opacity: 100%;
+}
+
+.product:hover .prod_options .btn {
+    filter: none;
+}
+
+.product:hover .prod_options{
+    bottom: calc((var(--hInfo) + (var(--hInfo) / 2)) - (var(--btn) / 2 )) ;
+}
+
+.product:hover .prod_options input[value="favorite"] { 
+    right: calc(var(--btn) + (var(--margin) * 2)); 
+    box-shadow: var(--shadow);
+}
+
+.product:hover .prod_options input[value="share"] { 
+    right: calc((var(--btn) * 2) + (var(--margin) * 3)); 
+    box-shadow: var(--shadow);
 }
