@@ -102,3 +102,10 @@ nav .options li[class="material-symbols-rounded"]:hover a { color: white; }
     right: calc((var(--btn) * 2) + (var(--margin) * 3)); 
     box-shadow: var(--shadow);
 }
+
+
+/* Categorias */
+
+.categories .category:hover { cursor: pointer; background-color: var(--translucent);}
+.categories .category:hover img { transform: scale(1.2); }
+.categories .category:active img { transform: scale(1.15); }

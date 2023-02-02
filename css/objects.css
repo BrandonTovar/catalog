@@ -76,12 +76,13 @@
 
 .product .prod_description h4 {
     margin-inline: 0.6rem;
+    font-size: medium;
     margin-top: 0.5rem;
     color: var(--fontColor);
 }
 .product .prod_description p {
     margin-inline: 0.5rem;
-    font-size: medium;
+    font-size: small;
 }
 
 .product .prod_description a {
