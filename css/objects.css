@@ -86,7 +86,7 @@
 }
 
 .product .prod_description a {
-    height: 0px;
+    height: auto;
     opacity: 0%;
     text-decoration: none;
     color: var(--fontColor);

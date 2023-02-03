@@ -1,3 +1,22 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    row-gap: var(--gap);
+    background-color: var(--background);
+}
+
+main {
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: var(--width);
+
+    row-gap: var(--gap);
+}
+
 table {
     padding: 0px;
     display: flex;
@@ -6,6 +25,10 @@ table {
     flex-direction: column;
     margin: 0px;
     border: none;
+}
+caption {
+    width: 100%;
+    display: flex;
 }
 
 
@@ -52,84 +75,40 @@ table {
 /* Formas de pago */
 
 .payment {
-    background-color: var(--surface);
+    width: var(--width);
+    height: min-content;
+    background-color: white;
+    overflow: clip;
     border-radius: var(--corner);
-    box-shadow: var(--shadow);
-    flex-direction: row;
 }
 
-.payment span, .payment p, .payment a, .payment caption{
+.payment tr {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: var(--width);
+    grid-template-columns: repeat(4, 25%);
+}
+
+.payment > * {
     color: var(--fontColor);
 }
 
-.payment p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.payment tr td p {
+    font-size: small;
     align-items: center;
-}
-
-.payment span {
-    font-size: var(--payments);
-}
-
-
-
-/* Marcas */
-
-.vendors {
-    --icons: 8;
-    width: var(--width);
-}
-
-.vendors caption {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: var(--width);
-    margin-bottom: 1rem;
-}
-
-.vendors tr {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-.vendors tr td:last-child { margin-right: 0px; }
-
-.vendors td {
-    width: calc((var(--width) / var(--icons)) - var(--gap));
-    height: calc((var(--width) / var(--icons)) - var(--gap));
-    background-color: var(--surface);
-    border-radius: var(--corner);
-    box-shadow: var(--shadow);
-    margin-inline-end: calc(var(--gap) / (var(--icons) - 1) * var(--icons));
-    padding: 0px;
-
     display: flex;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     flex-direction: column;
+    border-right: var(--border);
 }
 
-.vendors a {
-    text-decoration: none;
-    color: var(--fontColor);
-    opacity: 0%;
-    height: 0px;
+.payment tr td:last-child p { border: none}
 
-    transition: var(--transition);
+.payment tr td p span {
+    font-size: 60px;
 }
-
-.vendors td img {
-    object-fit: cover;
-    width: calc((var(--width) / var(--icons)) - var(--gap) - 2rem);
-    height: auto;
-    filter: contrast(0);
-    transition: var(--transition);
-}
-
 
 /* Articles */
 .articles {
@@ -161,9 +140,21 @@ table {
     overflow: clip;
 }
 
-/* Categorias */
+/* Vendors */
 
-.categories {
+.vendor a{
+    height: 0px;
+    opacity: 0%;
+    transition: var(--transition);
+}
+.vendor img{
+    filter: contrast(0);
+    transition: var(--transition);
+}
+
+/* Grid Columns:8 Rows:2 */
+
+.grid_8 {
     --icons: 8;
     width: var(--width);
     position: relative;
@@ -172,22 +163,22 @@ table {
     border-radius: var(--corner);
 }
 
-.categories caption { display: flex; }
+.grid_8 caption { display: flex; }
 
-.categories tbody {
+.grid_8 tbody {
     background-color: var(--surface);
     border-radius: var(--corner);
     overflow: clip;
 }
 
-.categories tr {
+.grid_8 tr {
     display: grid;
     grid-template-columns: repeat(var(--icons), calc(var(--width) / var(--icons) ));
     grid-template-rows: calc(var(--width) / var(--icons) );
     padding: 0px;
 }
 
-.categories .category {
+.grid_8 td {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -199,17 +190,17 @@ table {
     transition: var(--transition);
 }
 
-.categories tbody tr:nth-child(2) { border-bottom: none; }
-.categories tbody tr td:last-child { border-right: none; }
+.grid_8 tbody tr:nth-child(2) { border-bottom: none; }
+.grid_8 tbody tr td:last-child { border-right: none; }
 
 
-.categories .category img {
+.grid_8 td img {
     height: var(--height);
     width: 60%;
     object-fit: contain;
 }
 
-.category a {
+td a {
     text-decoration: none;
     color: var(--fontColor);
 }
@@ -289,7 +280,8 @@ table {
 }
 
 .randomView tr td {
-    height: 280px;
+    --height: 140px;
+    height: var(--height);
     background-color: var(--surface);
     border-radius: var(--corner);
     display: flex;
@@ -303,10 +295,12 @@ table {
 }
 
 .randomView tr img {
-    width: 280px;
+    width: var(--height);
     height: 100%;
     object-fit: cover;
     z-index: 2;
+
+    transform: var(--transition);
 }
 .randomView tr span img { 
     position: absolute;
@@ -318,7 +312,7 @@ table {
 }
 
 .randomView tr span {
-    height: 280px;
+    height: var(--height);
     width: 100%;
     padding: 0.5rem;
     display: flex;
@@ -330,10 +324,16 @@ table {
 .randomView tr h2 {
     font-size: 2rem;
     margin: 0px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-.randomView tr a {
+.randomView tr span a {
     text-decoration: none;
     color: var(--fontColor);
+    margin-inline: 0.5rem;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

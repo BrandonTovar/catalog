@@ -75,6 +75,7 @@ nav .options a {
     text-decoration: none;
     color: var(--fontColor);
     transition: var(--transition);
+    text-align: center;
 }
 
 nav .searcher {

@@ -28,6 +28,30 @@
     --corner: 11px;
 
     /* Transiciones */
-    --transition: linear 0.1s;
+    --transition: linear 0.05s;
 
+}
+
+*::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: var(--background);
+    border-radius: var(--corner);  
+    overflow: clip;
+}
+
+*::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+*::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+*::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: var(--corner);
 }

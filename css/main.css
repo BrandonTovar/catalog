@@ -4,21 +4,5 @@
 @import url("./transitions.css");
 @import url("./objects.css");
 @import url("./layouts.css");
+@import url("./responsive.css");
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: var(--gap);
-    background-color: var(--background);
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: var(--width);
-
-    row-gap: var(--gap);
-}
