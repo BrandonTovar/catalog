@@ -5,15 +5,18 @@ body {
     overflow-x: hidden;
     row-gap: var(--gap);
     background-color: var(--background);
+    max-width: 100vw;
 }
-
+html {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 main {
     overflow-x: hidden;
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: var(--width);
-
     row-gap: var(--gap);
 }
 
@@ -39,22 +42,36 @@ caption {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-}
-
-.banner .advertisings {
-    width: var(--width);
     --height: calc(var(--width) / 2.83);
     height: var(--height);
     background-color: royalblue;
     border-radius: var(--corner);
     box-shadow: var(--shadow);
     overflow: clip;
+    position: relative;
 }
+
+.banner .advertisings {
+    width: var(--width);
+    display: inline-flex;
+    position: absolute;
+    left: 0px;
+
+    --images: 6;
+
+    transition: 0.2s left;
+}
+
+.banner .advertisings[showing="1"] { left: 0px; }
+.banner .advertisings[showing="2"] { left: calc(var(--width) * -1 ); }
+.banner .advertisings[showing="3"] { left: calc(var(--width) * -2 ); }
+.banner .advertisings[showing="4"] { left: calc(var(--width) * -3 ); }
+.banner .advertisings[showing="5"] { left: calc(var(--width) * -4 ); }
+.banner .advertisings[showing="6"] { left: calc(var(--width) * -5 ); }
 
 .advertisings img {
     height: var(--height);
-    width: 100%;
+    width: var(--width);
     object-fit: contain;
 }
 
@@ -113,6 +130,7 @@ caption {
 /* Articles */
 .articles {
     --articles: 6;
+    position: relative;
 }
 
 .articles table td { padding: 0px; }
@@ -131,14 +149,32 @@ caption {
 }
 
 .products {
+    --gap: calc( (var(--width) - (var(--articles) * var(--wArticle)))  / var(--articles) );
     display: grid;
-    grid-template-columns: repeat(var(--articles), calc(var(--width) / var(--articles)));
+    grid-template-columns: repeat(18, var(--wArticle));
+    column-gap: var(--gap);
 
     height: auto;
     justify-items: center;
     align-items: center;
+    overflow-x: hidden;
     overflow: clip;
+
+    position: relative;
+
+    width: fit-content;
+    margin-left: calc(var(--gap) / 2);
+
+    transition: 0.2s left;
 }
+
+.products[showing="1"]  { left: 0px; }
+.products[showing="2"]  { left: calc(var(--width) * -1); }
+.products[showing="3"]  { left: calc(var(--width) * -2); }
+.products[showing="4"]  { left: calc( ( ( var(--width) / var(--articles) ) * 13 ) * -1); }
+
+
+
 
 /* Vendors */
 
@@ -208,32 +244,43 @@ td a {
 /* Interesting */
 
 .interesting tr {
-    --size: 290px;
-    display: flex;
-    background-color: var(--surface);
+    display: grid;
+    justify-items: end;
+    background-color: #f2de95;
     width: var(--width);
     border-radius: var(--corner);
     overflow: clip;
     position: relative;
+    height: var(--size);
+    grid-template-columns: var(--size) var(--section);
 }
 
 .interesting  { 
-    --articles: 4;
-    display: inline-table; 
-
+    --articles: 4; 
+    --size: 290px;
+    --section: calc(var(--width) - var(--size));
 }
 
 .interesting caption { display: flex; }
 
-.interesting tr td {
+.interesting tr td:nth-child(2) {
+    --gap: calc(((var(--section) - (var(--articles) * var(--wArticle)))  / var(--articles) )/2);
+
     display: grid;
-    grid-template-columns: repeat(var(--articles), min-content);
-    column-gap: 10px;
-    height: auto;
+    grid-template-columns: repeat(var(--articles), var(--wArticle));
+    column-gap: var(--gap);
+    overflow-x: hidden;
+    overflow: clip;
+    height: var(--size);
+    transition: 0.2s left;
+    
     align-items: center;
-    width: calc(100% - var(--size));
-    justify-content: end;
-    padding-inline: 20px;
+    justify-items: center;
+    justify-content: center;
+    
+    width: fit-content;
+    margin-inline: 1rem;
+
 }
 
 .interesting td[colspan="2"] {
@@ -265,9 +312,6 @@ td a {
     height: 50%;
     margin: 0px;
     z-index: 1;
-}
-.interesting tr td:nth-child(2) {
-    background-color: #FFFF0050;
 }
 
 /* Muestras Aleatorias */

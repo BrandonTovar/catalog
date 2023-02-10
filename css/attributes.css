@@ -32,26 +32,30 @@
 
 }
 
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
+    --thumb: 8px;
     -webkit-appearance: none;
-    background-color: var(--background);
+    background-color: transparent;
     border-radius: var(--corner);  
-    overflow: clip;
+    width: var(--thumb);
 }
 
-*::-webkit-scrollbar:vertical {
-    width:10px;
+::-webkit-scrollbar:vertical {
+    width:var(--thumb);
 }
 
-*::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
     display: none;
 } 
 
-*::-webkit-scrollbar:horizontal {
-    height: 5px;
+::-webkit-scrollbar:horizontal {
+    height: var(--thumb);
 }
 
-*::-webkit-scrollbar-thumb {
-    background-color: var(--accent);
+::-webkit-scrollbar-thumb {
+    background-color: rgb(188, 213, 236);
+    background-clip: padding-box;        
+    border: 1px solid rgba(0, 0, 0, 0);
     border-radius: var(--corner);
 }
+    

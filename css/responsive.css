@@ -3,10 +3,93 @@
 }
 
 @media screen and (max-width: 1200px) and (min-width: 1100px) {
-    :root { --width: 1100px; }
-    .products  {
-        column-gap: 1rem;
-        display: clip;
-        overflow-x: auto;
+    :root { --width: 1000px; }
+    .articles { --articles: 5; }
+    .interesting { --articles: 3; }
+    .interesting tr td:nth-child(2) {
+        grid-template-columns: repeat(4, auto);
+        width: calc(var(--section) - var(--wArticle) + (var(--gap) * var(--articles)));
+        display: grid;
+        justify-content: start;
     }
 }
+
+@media screen and (max-width: 1100px) and (min-width: 1000px) {
+    :root { --width: 980px; }
+    .articles { --articles: 5; }
+    .interesting { --articles: 2; }
+    .interesting tr td:nth-child(2) {
+        column-gap: calc(var(--gap) / 2);
+        grid-template-columns: repeat(4, auto);
+        width: calc(var(--section) - ((var(--wArticle) + (var(--gap) / 2) * 2)  ));
+        display: grid;
+        justify-content: start;
+    }
+
+}
+
+@media screen and (max-width: 1000px) and (min-width: 900px) {
+    :root { --width: 850px; }
+    .articles { --articles: 4; }
+    .interesting { --articles: 1; }
+    .interesting tr td:nth-child(2) {
+        column-gap: calc(var(--gap) / 2);
+        grid-template-columns: repeat(4, auto);
+        width: calc(var(--section) - ((var(--wArticle) + (var(--gap) / 2) * 2)  ));
+        display: grid;
+        justify-content: start;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    :root { --width: calc(100vw - 40px); }
+    .articles { --articles: 4; }
+    .interesting { --articles: 1; }
+    .interesting tr td:nth-child(2) {
+        column-gap: calc(var(--gap) / 2);
+        grid-template-columns: repeat(4, auto);
+        width: calc(var(--section) - ((var(--wArticle) + (var(--gap) / 2) * 2)  ));
+        display: grid;
+        justify-content: start;
+    }
+
+}
+
+@media screen and (max-width: 800px) { 
+    .articles { --articles: 3; }
+    .interesting tr { 
+        height: auto; 
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(auto-fit, fit-content);
+    }
+
+    .interesting tr td:nth-child(1) { 
+        height: 80px;
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .interesting tr td:nth-child(1) p {
+        display: none;
+    }
+    .interesting tr td:nth-child(2) {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(auto-fit, auto);
+        height: auto;
+        row-gap: 1rem;
+        width: 100%;
+        margin: 0px;
+        margin-block: 1rem;
+    }
+
+    
+}
+@media screen and (max-width: 600px) { 
+    .articles { 
+        --articles: 2; 
+    }  
+    
+}
+@media screen and (min-width: 500px) and (max-width: 600px) { .articles { --articles: 2; }}
