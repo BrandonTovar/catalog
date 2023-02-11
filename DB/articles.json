@@ -1,0 +1,40 @@
+{
+    "products" : [
+        {
+            "description" : "Esta es la descripcion del producto _01",
+            "price" : "123.00",
+            "discount" : "16% OFF",
+            "image" : "../img/.jpg"
+        } , 
+        {
+            "description" : "Esta es la descripcion del producto _02",
+            "price" : "412.00",
+            "discount" : "16% OFF",
+            "image" : "../img/.jpg"
+        } , 
+        {
+            "description" : "Esta es la descripcion del producto _03",
+            "price" : "56.65",
+            "discount" : "16% OFF",
+            "image" : "../img/.jpg"
+        } , 
+        {
+            "description" : "Esta es la descripcion del producto _04",
+            "price" : "192.47",
+            "discount" : "16% OFF",
+            "image" : "../img/.jpg"
+        } , 
+        {
+            "description" : "Esta es la descripcion del producto _05",
+            "price" : "950.50",
+            "discount" : "16% OFF",
+            "image" : "../img/.jpg"
+        } , 
+        {
+            "description" : "Esta es la descripcion del producto _06",
+            "price" : "840.71",
+            "discount" : "16% OFF",
+            "image" : "../img/.jpg"
+        }
+    ]
+}

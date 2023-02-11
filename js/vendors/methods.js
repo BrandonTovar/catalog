@@ -19,7 +19,10 @@ export function loadProducts(elements) {
     for (let i = 0; i < products.length; i++) {
         products[i].style.gridTemplateColumns = `repeat(${elements}, var(--wArticle))`;
         for (let x = 0; x < elements; x++) {
-            products[i].appendChild(createProduct());   
+            products[i].appendChild(createProduct(`120.0${i}`, `Esta es la descripcion del articulo ${x} en la fila ${i}` ,`${i}.${x}`));   
         }
     }
 }
+
+
+
