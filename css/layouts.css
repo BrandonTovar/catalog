@@ -62,13 +62,6 @@ caption {
     transition: 0.2s left;
 }
 
-.banner .advertisings[showing="1"] { left: 0px; }
-.banner .advertisings[showing="2"] { left: calc(var(--width) * -1 ); }
-.banner .advertisings[showing="3"] { left: calc(var(--width) * -2 ); }
-.banner .advertisings[showing="4"] { left: calc(var(--width) * -3 ); }
-.banner .advertisings[showing="5"] { left: calc(var(--width) * -4 ); }
-.banner .advertisings[showing="6"] { left: calc(var(--width) * -5 ); }
-
 .advertisings img {
     height: var(--height);
     width: var(--width);
@@ -167,12 +160,6 @@ caption {
 
     transition: 0.2s left;
 }
-
-.products[showing="1"]  { left: 0px; }
-.products[showing="2"]  { left: calc(var(--width) * -1); }
-.products[showing="3"]  { left: calc(var(--width) * -2); }
-.products[showing="4"]  { left: calc( ( ( var(--width) / var(--articles) ) * 13 ) * -1); }
-
 
 
 
