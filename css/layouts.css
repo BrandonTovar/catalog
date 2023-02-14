@@ -144,6 +144,12 @@ caption {
 .products {
     --gap: calc( (var(--width) - (var(--articles) * var(--wArticle)))  / var(--articles) );
     display: grid;
+
+    left: calc(var(--gap) * -1);
+    padding-inline: var(--gap);
+    padding-block: calc(var(--gap) / 2);
+    margin-top: calc((var(--gap) / 2) * -1);
+
     grid-template-columns: repeat(18, var(--wArticle));
     column-gap: var(--gap);
 
@@ -160,7 +166,9 @@ caption {
 
     transition: 0.2s left;
 }
-
+.product:last-child  {
+    background-color: red;
+}
 
 
 /* Vendors */
