@@ -54,6 +54,37 @@
         justify-content: start;
     }
 
+    .shortcuts {
+        width: var(--width);
+        display: flex;
+        grid-auto-flow: column dense;
+        column-gap: 1rem;
+        justify-content: start;
+        align-content: start;
+        overflow-x: auto;
+    }
+    .shortcuts a {
+        white-space: nowrap;
+        min-width: fit-content;
+        
+    }
+
+    header nav { grid-template-columns: 15% 70% 15%; }
+    header nav .barOptions { 
+        display: flex;
+        background-color: transparent;
+        font-size: 2rem;
+        color: var(--fontColor);
+    }
+    header nav .barOptions:hover { 
+        color: var(--accent);
+        cursor: pointer;
+        scale: 1.1;
+        animation: 0.2s;
+    }
+    
+    header nav .options { display: none;}
+
 }
 
 @media screen and (max-width: 800px) { 
@@ -93,3 +124,31 @@
     
 }
 @media screen and (min-width: 500px) and (max-width: 600px) { .articles { --articles: 2; }}
+
+
+
+
+/* Moviles */
+
+@media only screen and (hover: none) and (pointer: coarse){
+    .articles { --articles:1; }
+    .articles table tbody tr {
+        grid-template-columns: 100%;
+        margin: 0px;
+    }
+    .articles table tbody tr td input{ display: none; }
+    .articles .product { width: var(--width);}
+    .articles .products { 
+        grid-template-columns: repeat(var(--maxElements), var(--width));
+        padding-inline: 1rem;
+        width: var(--width);
+    }
+    header nav .barOptions:hover { 
+        color: var(--fontColor);
+    }
+    header nav .barOptions:active {
+        color: var(--accent);
+        scale: 1.1;
+    }
+
+}

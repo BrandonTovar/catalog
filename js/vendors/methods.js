@@ -1,11 +1,14 @@
 import { createProduct } from "../templates/product.js";
 
+let position = {};
+
 export function loadProducts(elements) {
     const file = document;
 
     let products = file.getElementsByClassName("products");
     for (let i = 0; i < products.length; i++) {
-        products[i].style.gridTemplateColumns = `repeat(${elements}, var(--wArticle))`;
+        products[i].style.setProperty("--maxElements", `${elements}`);
+        // products[i].style.gridTemplateColumns = `repeat(${elements}, var(--wArticle))`;
         for (let x = 0; x < elements; x++) {
             products[i].appendChild(createProduct(`120.0${i}`, `Esta es la descripcion del articulo ${x} en la fila ${i}` ,`${i}.${x}`));   
         }
@@ -14,74 +17,42 @@ export function loadProducts(elements) {
 
 
 export function viewNext(element = document, c = "", i=0, clientWidth = NaN) {
-    next(element, document.getElementsByClassName(c)[0])
-}
-export function viewBefore(element = document, c = "", i=0, clientWidth = NaN) {
-    let sizes = getDimensions(element,c);
-    let e = element.getElementsByClassName(c)[i];
-    let posX = parseInt(e.style.left);
-    let width = clientWidth == 0 ? parseInt(e.clientWidth) : clientWidth;
-    if (isNaN(sizes.width)) before(element, e, i, 0);
-    else before(element, c, i, sizes.width);
-}
-
-function before(element = document, c = "", i=0, clientWidth = NaN) {
-    if (posX == 0 || isNaN(posX)) e.style.left = `${(-e.scrollWidth + width)}px`;
-    else e.style.left = `${(isNaN(posX)? 0 : posX) + width}px`;
-}
-
-function getDimensions(e = document.body, c = "") {
-    let element = e.getElementsByClassName(c)[0];
-    let stylesheet = getComputedStyle(element);
-    let values = {
-        width: parseInt(stylesheet.getPropertyValue("--width")),
-        articles: parseInt(stylesheet.getPropertyValue("--articles")),
-        wArticle: parseInt(stylesheet.getPropertyValue("--wArticle"))
-    };  
-    let gap = (values.width - (values.articles * values.wArticle) ) / values.articles;
-    let clientWidth = (values.articles * values.wArticle) + gap;
-    return {"gap": gap, "width": clientWidth};
-}
-
-function goNext() {
-    getAttributes();
-    next();
+    next(element, document.getElementsByClassName(c)[i]);
 }
 
 function next(parent, object) {
-    let wParent = parent.clientWidth;
-    let objectWidth = object.scrollWidth;
-    let childs = object.childElementCount;
 
-    let rest = ( object.firstChild.clientWidth * childs) % wParent;
-    console.log(rest, object.childElementCount, object.childNode);
-    let posX = object.offsetLeft;    
+    // Attributes
+    let widthParent = parent.clientWidth;
+    let widthObject = object.scrollWidth;
+    let childObject = object.childElementCount;
+    let viewObject = object.firstElementChild.clientWidth;
+    let restParent = (viewObject * childObject) % widthParent;
+    let positionX = object.style.left == '' ? 0 : parseFloat(object.style.left);
+    
+    if (restParent == 0) {
+        if ( !((positionX - widthParent) < ( (widthObject - widthParent) * -1)) )
+            object.style.left = `${positionX - widthParent}px`;
+        else object.style.left = `0px`;
+    }
+    else {
+        let viewArticles = parseFloat(getComputedStyle(object).getPropertyValue("--articles"));
+        let gap = (widthParent - (viewObject * viewArticles) ) / viewArticles;
+        let restSpace = positionX - (-widthObject + positionX + widthParent) - gap;
 
-
-    // if (rest != 0) {
-    //     let wArticle = object.firstChild.clientWidth;
-    //     let articles = Math.trunc(wParent / wArticle);
-    //     let gap = (wParent - (wArticle * articles) ) / articles;
+        if (-(positionX - widthParent) < widthObject - widthParent ) {
+            object.style.left = `${positionX - widthParent }px`;
+        }
+        else if (-(positionX - widthParent) != widthObject) {
+            object.style.left = `${ positionX - (widthObject - (-positionX + widthParent)) }px`;
+            console.log(positionX  - (widthObject - (-positionX + widthParent)));
+        }
+        else {
+            object.style.left = '0px';
+        }
         
-    // }
-    // else {
-    //     if ( !((posX - wParent) < ( (objectWidth - wParent) * -1)) )
-    //         object.style.left = `${posX - wParent}px`;
-    // }   
+            
+        
+    }
 
 }
-
-
-// if ( (posX - width) + objectWidth >= wParent ) 
-// object.style.left = `${posX - width}px`;
-// else if ( 
-
-// posX - width == objectWidth
-
-// ) 
-
-// {
-// object.style.left = `${ posX - (objectWidth + (posX  - width)) - (gap / 2 )}px`; 
-// console.log( posX - (objectWidth + (posX  - width))  - (gap / 2) + objectWidth , wParent );
-// }
-// else object.style.left = '0px';

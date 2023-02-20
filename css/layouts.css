@@ -124,6 +124,7 @@ caption {
 .articles {
     --articles: 6;
     position: relative;
+    overflow: clip;
 }
 
 .articles table td { padding: 0px; }
@@ -142,29 +143,25 @@ caption {
 }
 
 .products {
-    --gap: calc( (var(--width) - (var(--articles) * var(--wArticle)))  / var(--articles) );
-    display: grid;
-
-    left: calc(var(--gap) * -1);
-    padding-inline: var(--gap);
-    padding-block: calc(var(--gap) / 2);
-    margin-top: calc((var(--gap) / 2) * -1);
-
-    grid-template-columns: repeat(18, var(--wArticle));
+    --gap: calc( ( ( var(--width) - ( var(--articles) *  var(--wArticle) ) ) / var(--articles) ) );
+        
+    display: inline-grid;
+    
+    left: 0px;
+    grid-template-columns: repeat(var(--maxElements), max(var(--wArticle)));
+    grid-auto-flow: column;
     column-gap: var(--gap);
 
     height: auto;
     justify-items: center;
     align-items: center;
-    overflow-x: hidden;
-    overflow: clip;
 
     position: relative;
-
     width: fit-content;
-    margin-left: calc(var(--gap) / 2);
-
+    
     transition: 0.2s left;
+    padding-block: 1rem;
+    padding-inline: calc(var(--gap) / 2);
 }
 .product:last-child  {
     background-color: red;

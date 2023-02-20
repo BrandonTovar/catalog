@@ -33,7 +33,9 @@ nav .options li:hover a{
 }
 
 nav .options li[class="material-symbols-rounded"]:hover a { color: white; }
-
+header nav .barOptions:active { 
+    scale: 1;
+}
 .shortcuts a:hover { 
     color: var(--accent); 
     text-decoration: underline;

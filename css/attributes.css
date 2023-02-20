@@ -30,6 +30,9 @@
     /* Transiciones */
     --transition: linear 0.05s;
 
+    /* Configuration */
+    --maxElements: 18;
+
 }
 
 ::-webkit-scrollbar {
