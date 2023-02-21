@@ -56,3 +56,18 @@ function next(parent, object) {
     }
 
 }
+
+
+export function viewMenu() {
+    let sideMenu = document.getElementsByClassName("sideOptions")[0];
+    if (sideMenu.style.display != 'block') {
+        sideMenu.style.display = 'block';
+        document.getElementsByTagName("html")[0].style.overflow = 'hidden';
+    }
+    else {
+        sideMenu.style.display = 'none';
+        document.getElementsByTagName("html")[0].style.overflow = '';
+    }
+    
+
+}

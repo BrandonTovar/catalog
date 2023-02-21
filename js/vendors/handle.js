@@ -23,3 +23,5 @@ articles[2].getElementsByTagName("input")[1].addEventListener("mousedown", funct
 
 articles[3].getElementsByTagName("input")[0].addEventListener("mousedown", function() { method.viewBefore(articles[3], "products", 3)})
 articles[3].getElementsByTagName("input")[1].addEventListener("mousedown", function() { method.viewNext(articles[3], "products", 3)})
+
+document.querySelector(`[value="menu"]`).addEventListener("mousedown", function() { method.viewMenu() });

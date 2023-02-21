@@ -126,7 +126,7 @@ caption {
     position: relative;
     overflow: clip;
 }
-
+.articles .separator { display: none; }
 .articles table td { padding: 0px; }
 
 .articles table tr {
@@ -163,10 +163,6 @@ caption {
     padding-block: 1rem;
     padding-inline: calc(var(--gap) / 2);
 }
-.product:last-child  {
-    background-color: red;
-}
-
 
 /* Vendors */
 

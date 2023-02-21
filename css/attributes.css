@@ -36,7 +36,7 @@
 }
 
 ::-webkit-scrollbar {
-    --thumb: 8px;
+    --thumb: 0px;
     -webkit-appearance: none;
     background-color: transparent;
     border-radius: var(--corner);  
@@ -59,6 +59,5 @@
     background-color: rgb(188, 213, 236);
     background-clip: padding-box;        
     border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: var(--corner);
 }
     
